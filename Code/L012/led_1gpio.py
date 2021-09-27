@@ -7,10 +7,8 @@ time.sleep(0.1)
 cnt=10
 for i in range(0,cnt,1):
    GPIO.output(25, False)
-   GPIO.output(8, True)
    time.sleep(0.2)
    GPIO.output(25, True)
-   GPIO.output(8, False)
    time.sleep(0.2)
    print(i)
 GPIO.cleanup()

@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
-print("Setup LED pins as output")
 pins = [18,24,21,16]
 for p in pins:
     GPIO.setup(p, GPIO.OUT);GPIO.output(p, False)

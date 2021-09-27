@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
-print("Setup LED pins as output")
 GPIO.setup(18, GPIO.OUT);GPIO.output(18, False)
 GPIO.setup(24, GPIO.OUT);GPIO.output(24, False)
 GPIO.setup(21, GPIO.OUT);GPIO.output(21, False)
