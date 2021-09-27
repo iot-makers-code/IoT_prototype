@@ -1,4 +1,4 @@
-</pre>
+<pre>
 여러개 LED 켜기는
 1. GPIO에 대한 동시 제어 방법을 배우고
 2. 여러 LED를 효과적으로 제어하는 알고리즘을 배운다.
@@ -14,4 +14,4 @@ led_up.py : GPIO18, 24, 12, 16에서 LED켜기, 코드 단순화
 led_1gpio.py : GPIO25, 8를 사용한 1개 LED켜기
 led_2gpio.py : GPIO25, 8를 사용한 2개 LED켜기
 
-<pre>
+</pre>
