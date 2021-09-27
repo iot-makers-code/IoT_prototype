@@ -8,8 +8,8 @@ time.sleep(1)
 cnt=10
 for i in range(0,cnt,1):
     GPIO.output(18,False)
-    time.sleep(0.1)
+    time.sleep(0.2)
     GPIO.output(18,True)
-    time.sleep(0.1)
+    time.sleep(0.2)
     print(i)
 GPIO.cleanup()
