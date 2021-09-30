@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-pins = [18, 24, 21, 12, 16, 11, 17, 14]
+pins = [18, 24, 21, 12, 16]
 GPIO.setmode(GPIO.BCM)
 for p in pins:
    GPIO.setup(p, GPIO.OUT);GPIO.output(p, False)
