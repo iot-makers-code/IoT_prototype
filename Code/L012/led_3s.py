@@ -1,24 +1,20 @@
 import RPi.GPIO as GPIO
 import time
+pins = [18, 24, 21]
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT);GPIO.output(18, False)
-GPIO.setup(24, GPIO.OUT);GPIO.output(24, False)
-GPIO.setup(21, GPIO.OUT);GPIO.output(21, False)
-time.sleep(0.1)
+for p in pins:
+   GPIO.setup(p, GPIO.OUT);GPIO.output(False)
 
-cnt=50
-for i in range(0,cnt,1):
-   GPIO.output(18, True)
-   GPIO.output(24, False)
-   GPIO.output(21, False)
-   time.sleep(0.2)
-   GPIO.output(18, False)
-   GPIO.output(24, True)
-   GPIO.output(21, False)
-   time.sleep(0.2)
-   GPIO.output(18, False)
-   GPIO.output(24, False)
-   GPIO.output(21, True)
+cnt = 1000
+for i in range(0, cnt, 1):
+    for c in range(0,length(pins),1):
+        for p in pins:
+            if c == pins.index(p):
+                GPIO.output(18, True)
+            else:
+                GPIO.output(18, False)
    time.sleep(0.2)
    print(i)
 GPIO.cleanup()
+
+ 
