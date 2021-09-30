@@ -10,10 +10,7 @@ cnt=50
 for i in range(0,cnt*len(pins),1):
     for c in range(0, len(pins), 1):
         for p in pins:
-            if pins.index(p) == c:
-                GPIO.output(p, True )
-            else:
-                GPIO.output(p, False)
+            GPIO.output(p, pins.index(p) == c )
         time.sleep(0.2)
     print((int)(i/len(pins)), (i % len(pins)))
 GPIO.cleanup()
