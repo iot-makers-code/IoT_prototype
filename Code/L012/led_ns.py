@@ -7,12 +7,12 @@ for p in pins:
 
 cnt = 1000
 for i in range(0, cnt, 1):
-    for c in pins:
-        for p in pins:
-            if p == c:
-                GPIO.output(p, True)
-            else:
-                GPIO.output(p, False)
-        time.sleep(0.2)
-    print(i)
+   for c in pins:
+      for p in pins:
+         if p == c:
+            GPIO.output(p, True)
+         else:
+            GPIO.output(p, False)
+      time.sleep(0.2)
+   print(i)
 GPIO.cleanup()

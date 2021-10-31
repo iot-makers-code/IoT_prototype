@@ -7,9 +7,9 @@ for p in pins:
 
 cnt = 1000
 for i in range(0, cnt, 1):
-    for c in pins:
-        for p in pins:
-            GPIO.output(p, p == c)
-        time.sleep(0.2)
-    print(i)
+   for c in pins:
+      for p in pins:
+         GPIO.output(p, p == c)
+      time.sleep(0.2)
+   print(i)
 GPIO.cleanup()

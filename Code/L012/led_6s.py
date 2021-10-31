@@ -8,7 +8,7 @@ GPIO.setup(12, GPIO.OUT)
 GPIO.setup(16, GPIO.OUT)
 GPIO.setup(11, GPIO.OUT)
 cnt = 1000
-for i in range(0, cnt, 1):
+for i in range(0,cnt,1):
    GPIO.output(18, True)
    GPIO.output(24, False)
    GPIO.output(21, False)
@@ -16,7 +16,6 @@ for i in range(0, cnt, 1):
    GPIO.output(16, False)
    GPIO.output(11, False)
    time.sleep(0.2)
-   
    GPIO.output(18, False)
    GPIO.output(24, True)
    GPIO.output(21, False)
@@ -24,7 +23,6 @@ for i in range(0, cnt, 1):
    GPIO.output(16, False)
    GPIO.output(11, False)
    time.sleep(0.2)
-   
    GPIO.output(18, False)
    GPIO.output(24, False)
    GPIO.output(21, True)
@@ -32,7 +30,6 @@ for i in range(0, cnt, 1):
    GPIO.output(16, False)
    GPIO.output(11, False)
    time.sleep(0.2)
-   
    GPIO.output(18, False)
    GPIO.output(24, False)
    GPIO.output(21, False)
@@ -40,7 +37,6 @@ for i in range(0, cnt, 1):
    GPIO.output(16, False)
    GPIO.output(11, False)
    time.sleep(0.2)
-   
    GPIO.output(18, False)
    GPIO.output(24, False)
    GPIO.output(21, False)
@@ -48,7 +44,6 @@ for i in range(0, cnt, 1):
    GPIO.output(16, True)
    GPIO.output(11, False)
    time.sleep(0.2)
-
    GPIO.output(18, False)
    GPIO.output(24, False)
    GPIO.output(21, False)
@@ -56,6 +51,5 @@ for i in range(0, cnt, 1):
    GPIO.output(16, False)
    GPIO.output(11, True)
    time.sleep(0.2)
-
    print(i)
 GPIO.cleanup()
