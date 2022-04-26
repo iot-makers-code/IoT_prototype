@@ -1,0 +1,28 @@
+<html>
+<body>
+<div style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);text-align:center;">
+    <div id="clock" style="font-size:20vw;"></div>
+    <div id="date"  style="font-size:6vw;"></div>
+</div>
+<script>
+var dayid = ['일','월','화','수','목','금','토']
+
+function show() {
+   d = new Date()
+   clock.innerHTML 
+       = d.toTimeString().substring(0,8);
+   date.innerHTML 
+       = d.toLocaleDateString()
+          .replaceAll(". ", ":").slice(0,-1)
+        + "("+ dayid[d.getDay()] +")"
+}
+setInterval(function() {
+    show();
+}, 1000);
+
+clock.style.fontFamily 
+    = "Impact,Charcoal,System-Regular";
+
+</script>
+</body>
+</html>
