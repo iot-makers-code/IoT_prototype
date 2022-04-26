@@ -1,0 +1,39 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>ESP8266 WEB SERVER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>ESP8266 WEB SERVER</h2>
+  <h4>Output - GPIO 2</h4>
+  <label class="switch"><input type="checkbox" onchange="toggleCheckbox(this)" id="2" >
+  <span class="slider"></span>
+  </label>
+  
+  <script>
+  function toggleCheckbox(element) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+         try {
+            var resp = JSON.parse(xhr.response);
+         } catch (e){
+            var resp = 'Unknown error occurred: [' + xhr.responseText + ']';
+         }
+         element.checked = resp=="1"?true:false;
+         console.log(resp);
+    }};
+    xhr.open("GET"
+            ,"/update?output="+element.id
+              +"&state="+(element.checked?"1":"0")
+           ,true);
+    xhr.send();
+  }
+  
+  element = document.getElementById("2")
+  toggleCheckbox(element)
+</script>
+</body>
+</html>
