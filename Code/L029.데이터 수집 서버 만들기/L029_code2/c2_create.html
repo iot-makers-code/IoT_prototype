@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+   </head>
+   <body>
+       ID: <input  id="id" type = "text">
+       API: <input id="api" type = "text">
+       <input type = "button" value="등록" onclick="create();">
+       <div id="result" style="color:red"></div>
+   </body>
+    <script>
+    var create = function () {
+        var data = new FormData();
+        data.append('func', 'create');
+        data.append('id', document.getElementById('id').value);
+        data.append('api', document.getElementById('api').value);
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if(request.readyState == 4) {
+                try {
+                    var resp = JSON.parse(request.response);
+                } catch (e) {
+                   var resp = {
+                      status: 'error',
+                      data: 'Unknown error : [' 
+                              + request.responseText + ']'
+                    };
+                }
+                console.log(resp.status + ': ' + resp.data);
+                document.getElementById('result').innerHTML 
+                        = "Done: "+resp.data
+            }
+        };
+        request.open('POST', "s01.php" );
+        request.send(data);
+    }
+    </script>
+</html>
+
