@@ -26,6 +26,34 @@
     <script>
     var objById = function(id) {
         return document.getElementById(id)
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0">   
+      <title>API등록</title>
+      <script src="./service.base.js"></script>
+    </head>
+    <body>
+       <div>
+         API 등록화면:<br>
+         UID: <input id="sid" type = "text" 
+                    style="width:6em;"/><br>
+         API: <input id="api" type = "text" 
+                    style="width:13em;"/><br>
+         <input type = "button" value="등록" 
+                    onclick="create();"/>
+         <input type = "button" value="테스트" 
+                    onclick="testapi();"/>
+         <input type = "button" value="목록" 
+                    onclick="listapi();"/>
+       </div>
+       <div id="result" style="color:red"></div>
+    </body>
+    <script>
+    var objById = function(id) {
+        return document.getElementById(id)
     }
     var create = function () {
         var data = new FormData();
@@ -55,13 +83,22 @@
             console.log(resp.status + ': ' + resp.data);
             objById('result').innerHTML = ""
             for (i=0;i<resp.data.length;i++) {
+                //div 생성
                 div = document.createElement('DIV')
                 div.id = resp.data[i].sid
-                div.onclick = function() {deleteapi( this.id);}
                 div.innerHTML = "SID["+resp.data[i].sid 
                           + "], API[" + resp.data[i].api + "]"
-                console.log(div.innerHTML);
-                objById('result').appendChild(div)
+                //버튼 생성
+                btn = document.createElement('INPUT')
+                btn.type = "button"
+                btn.value = "삭제"
+                btn.dataset.sid = resp.data[i].sid
+                btn.onclick = function()
+                      {deleteapi( this.dataset.sid); }
+                div.appendChild(btn) //div에추가
+                
+                console.log(resp.data[i].sid)
+                objById('result').appendChild(div)//목록추가
             }
         });
     }
@@ -78,4 +115,3 @@
     }
     </script>
 </html>
-
