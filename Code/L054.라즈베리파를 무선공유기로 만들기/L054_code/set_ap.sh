@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ~pi/ap
 [ "$#" -lt "1" ] && \
     echo "usage $0 enable \|disable" && exit 0
