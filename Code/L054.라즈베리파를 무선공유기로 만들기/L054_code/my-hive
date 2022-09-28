@@ -1,3 +1,4 @@
+
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          anhive
@@ -13,7 +14,6 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 PIDF=/run/my-hive.pid
 PID=$(cat $PIDF)
 
- 
 do_start () {
   # Start remote input for application 
   sleep 2
@@ -27,10 +27,10 @@ do_status () {
 }
 do_stop () {
   # check current status which is good or bat
-  kill -9 $(ps -ef | grep $PID | awk '{print $2}')
+  kill -9 $(ps -ef | grep $PID | awk ' {print $2 }')
   rm $PIDF
 }
- 
+
 case "$1" in
   start|"")
       do_start || exit $?
@@ -46,5 +46,5 @@ case "$1" in
       ;;
   *)
       echo "Usage: my-hive [start|stop|status]" >&2 || exit 3
-      ;;
+      
 esac
