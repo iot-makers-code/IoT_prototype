@@ -1,25 +1,21 @@
-#!/bin/bash
-# AnHive, 2017.01
-
 cd ~pi/ap
+[ "$#" -lt "1" ] && \
+    echo "usage $0 enable \|disable" && exit 0
 
-[ "$#" -lt "1" ] && echo "usage $0 enable\|disagle" \
-                && exit 0
-
+DENY=denyinterfaces
+CONF=/etc/dhcpcd.conf
+[ "$(grep $DENY /etc/dhcpcd.conf | wc -l)" == 0 ] \
+    && echo "#$DENY wlan0" | sudo tee -a $CONF
 if [ "$1" == "enable" ]
 then
-    sudo sed -i 's/#denyinterfaces/denyinterfaces/g' \
-                /etc/dhcpcd.conf
     [ -e disable_ap ] && mv disable_ap enable_ap
-    sudo sed -i 's/wlan0/wlanX/g' \
-                /etc/network/interfaces
+    [ ! -e enable_ap ] && touch enable_ap
+    sudo sed -i "s/#$DENY/$DENY/g" $CONF
 elif [ "$1" == "disable" ]
 then
-    sudo sed -i 's/denyinterfaces/#denyinterfaces/g' \
-                /etc/dhcpcd.conf
     [ -e enable_ap ] && mv enable_ap disable_ap
-    sudo sed -i 's/wlanX/wlan0/g' \
-                /etc/network/interfaces
+    [ ! -e disable_ap ] && touch disable_ap
+    sudo sed -i "s/$DENY/#$DENY/g" $CONF
 else
   echo "not defined option $1."
 fi
