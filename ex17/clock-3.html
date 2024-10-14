@@ -1,0 +1,13 @@
+<html>
+<body>
+<div style="position:fixed; top:50%; left:50%; transform:translate(-50%,-50%);text-align:center;">
+<div id="clock" style="font-size:10vw;"></div>
+</div>
+<script>
+setInterval(function() {
+d = new Date()
+clock.innerText = d.toTimeString()
+}, 1000);
+</script>
+</body>
+</html>

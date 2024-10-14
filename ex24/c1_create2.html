@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="us">
+     <head>
+       <meta charset="utf-8">
+       <meta name="viewport"
+         content="width=device-width, initial-scale=1.0">
+       <title>API Registration</title>
+       <script src="./service.base.js"></script>
+     </head>
+     <body>
+        <div>
+          API registration screen:<br>
+          SID: <input id="sid" type="text"
+                     style="width:6em;"/><br>
+          API: <input id="api" type="text"
+                     style="width:13em;"/><br>
+         <input type="button" value="register"
+                     onclick="create();"/>
+         <input type="button" value="test"
+                     onclick="testapi();"/>
+        </div>
+        <div id="result" style="color:red"></div>
+     </body>
+     <script>
+     var objById =function(id) {
+         return document.getElementById(id)
+     }
+     var create =function() {
+     //intermediate omission ...
+     }
+     var testapi =function() {
+         var data =new FormData();
+         data.append('func', 'testapi');
+         data.append('test', objById('sid').value);
+         data.append('api', objById('api').value);
+         POST('s01.php', data, function(resp) {
+             console.log(resp.status +': '+resp.data);
+             objById('result').innerHTML
+                     ="Test:"+resp.data+"/"+resp.status
+         });
+     }
+     </script>
+</html>
+

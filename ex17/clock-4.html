@@ -1,0 +1,31 @@
+<html>
+<body>
+<div style="position:fixed;
+             top:50%;left:50%;
+             transform:translate(-50%,-50%);
+             text-align:center;">
+<div id="clock" style="font-size:10vw;">11:11:11</div>
+<div id="date" style="font-size:6vw;">1970/01/01</div>
+</div>
+<script>
+function MyDateString(dt) {
+    y = dt.getFullYear() //2021
+    m = dt.getMonth() + 1 //1 - 12
+    d = dt.getDate() //1 to 31
+    s = y + ":"
+      + ( m < 10 ? "0" : "") + m + ":"
+      + ( d < 10 ? "0" : "") + d
+    return s
+}
+setInterval(function() {
+    d = new Date()
+    clock.innerText
+       = d.toTimeString().substring(0,8)
+    date.innerText
+       = MyDateString(d)
+}, 1000)
+clock.style.fontFamily
+     = "Impact,Charcoal,System-Regular"
+</script>
+</body>
+</html>
